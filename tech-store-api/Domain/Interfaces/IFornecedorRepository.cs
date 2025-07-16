@@ -2,12 +2,13 @@
 
 namespace tech_store_api.Domain.Interfaces
 {
-    public interface IProdutoRepository
+    public interface IFornecedorRepository
     {
-        IEnumerable<Produto> ListarTodos();
-        void Add(Produto produto);
-        Produto ObterPorId(int id);
-        void Atualizar(Produto produto);
+        IEnumerable<Fornecedor> ListarTodos();
+        void Add(Fornecedor fornecedor);
+        Fornecedor ObterPorId(int id);
+        //void Update(Fornecedor fornecedor);
+        void Atualizar(Fornecedor fornecedor);
         //Produto ObterPorId(int id);
         //void Adicionar(Produto produto);
         //void Atualizar(Produto produto);

@@ -22,7 +22,7 @@ namespace tech_store_api.API.Controllers
             return Ok(clientes);
         }
 
-        [HttpPost]
+        [HttpPost] 
         public IActionResult Post([FromBody] Cliente cliente)
         {
             if (cliente == null)
@@ -30,6 +30,18 @@ namespace tech_store_api.API.Controllers
             var novoCliente = _service.CriarCliente(cliente);
 
             return CreatedAtAction(nameof(Get), new { id = novoCliente.Id }, novoCliente);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var cliente = _service.ObterClientePorId(id);
+            if (cliente == null)
+                return NotFound();
+
+            _service.RemoverCliente(id);
+
+            return NoContent();
         }
     }
 }

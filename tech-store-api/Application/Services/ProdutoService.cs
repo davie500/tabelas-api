@@ -17,10 +17,29 @@ namespace tech_store_api.Application.Services
             return _repo.ListarTodos();
         }
 
+        public Produto? ObterProdutoPorId(int id)
+        {
+            return _repo.ObterPorId(id);
+        }
+
         public Produto CriarProduto(Produto produto)
         {
             _repo.Add(produto);
             return produto;
+        }
+
+        public Produto AtualizarProduto(Produto produto)
+        {
+            _repo.Atualizar(produto);
+            _repo.Salvar(); // Se quiser salvar logo aqui
+
+            return produto;
+        }
+
+        public void RemoverProduto(int id)
+        {
+            _repo.Remover(id);
+            _repo.Salvar();
         }
     }
 }

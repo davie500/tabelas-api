@@ -2,12 +2,12 @@
 
 namespace tech_store_api.Domain.Interfaces
 {
-    public interface IProdutoRepository
+    public interface IPagamentoRepository
     {
-        IEnumerable<Produto> ListarTodos();
-        void Add(Produto produto);
-        Produto ObterPorId(int id);
-        void Atualizar(Produto produto);
+        IEnumerable<Pagamento> ListarTodos();
+        void Add(Pagamento pagamento);
+        Pagamento ObterPorId(int id);
+        void Atualizar(Pagamento pagamento);
         //Produto ObterPorId(int id);
         //void Adicionar(Produto produto);
         //void Atualizar(Produto produto);

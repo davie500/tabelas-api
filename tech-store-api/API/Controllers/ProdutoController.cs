@@ -31,5 +31,19 @@ namespace tech_store_api.API.Controllers
 
             return CreatedAtAction(nameof(Get), new { id = novoProduto.Id }, novoProduto);
         }
+
+        //[HttpPut]
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var produto = _service.ObterProdutoPorId(id);
+            if (produto == null)
+                return NotFound();
+
+            _service.RemoverProduto(id);
+
+            return NoContent();
+        }
     }
 }

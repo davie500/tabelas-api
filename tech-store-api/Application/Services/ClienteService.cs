@@ -18,10 +18,29 @@ namespace tech_store_api.Application.Services
             return _repo.ListarTodos();
         }
 
+        public Cliente? ObterClientePorId(int id)
+        {
+            return _repo.ObterPorId(id);
+        }
+
         public Cliente CriarCliente(Cliente cliente)
         {
             _repo.Add(cliente);
             return cliente;
+        }
+
+        public Cliente AtualizarCliente(Cliente cliente)
+        {
+            _repo.Atualizar(cliente);
+            _repo.Salvar(); // Se quiser salvar logo aqui
+
+            return cliente;
+        }
+
+        public void RemoverCliente(int id)
+        {
+            _repo.Remover(id);
+            _repo.Salvar();
         }
     }
 }

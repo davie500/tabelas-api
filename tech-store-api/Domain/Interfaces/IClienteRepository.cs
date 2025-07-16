@@ -5,12 +5,15 @@ namespace tech_store_api.Domain.Interfaces
     public interface IClienteRepository
     {
         IEnumerable<Cliente> ListarTodos();
-
         void Add(Cliente cliente);
+        Cliente ObterPorId(int id);
+        void Atualizar(Cliente cliente);
         //Produto ObterPorId(int id);
         //void Adicionar(Produto produto);
         //void Atualizar(Produto produto);
         //void Remover(int id);
-        //void Salvar(); // Ou SaveChanges()
+
+        void Remover(int id);
+        void Salvar(); // Ou SaveChanges()
     }
 }

@@ -18,40 +18,37 @@ namespace tech_store_api.Infrastructure.Repositories
             return _context.Cliente.ToList();
         }
 
+        public Cliente ObterPorId(int id)
+        {
+            return _context.Cliente.Find(id);
+        }
+
+        public void Adicionar(Cliente cliente)
+        {
+            _context.Cliente.Add(cliente);
+        }
+
+        public void Atualizar(Cliente cliente)
+        {
+            _context.Cliente.Update(cliente);
+        }
+
+        public void Remover(int id)
+        {
+            var cliente = _context.Cliente.Find(id);
+            if (cliente != null)
+                _context.Cliente.Remove(cliente);
+        }
+
+        public void Salvar()
+        {
+            _context.SaveChanges();
+        }
+
         public void Add(Cliente cliente)
         {
             _context.Cliente.Add(cliente);
             _context.SaveChanges();
         }
-
-
-
-
-        //public Produto ObterPorId(int id)
-        //{
-        //    return _context.Produto.Find(id);
-        //}
-
-        //public void Adicionar(Produto produto)
-        //{
-        //    _context.Produto.Add(produto);
-        //}
-
-        //public void Atualizar(Produto produto)
-        //{
-        //    _context.Produto.Update(produto);
-        //}
-
-        //public void Remover(int id)
-        //{
-        //    var produto = _context.Produto.Find(id);
-        //    if (produto != null)
-        //        _context.Produto.Remove(produto);
-        //}
-
-        //public void Salvar()
-        //{
-        //    _context.SaveChanges();
-        //}
     }
 }
